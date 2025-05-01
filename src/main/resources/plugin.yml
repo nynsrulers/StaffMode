@@ -1,8 +1,13 @@
 name: StaffMode
-version: '1.0-SNAPSHOT'
+version: '${version}'
 main: com.nynsrulers.staffmode.StaffMode
 api-version: '1.21'
 prefix: Staff Mode
 authors: [ Aelithron ]
 description: Swap between normal and staff permissions.
 website: https://github.com/nynsrulers/StaffMode
+depend:
+  - Vault
+softdepend:
+  - PvPToggle
+  - LorePowers
