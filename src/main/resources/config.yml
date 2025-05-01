@@ -1,0 +1,10 @@
+# StaffMode by Aelithron
+
+# Prefix
+# Shown in front of all messages.
+# Colors supported, guide: https://wiki.ess3.net/mc
+Prefix: "&7[&4&lSTAFF&7]"
+
+# Staff Group Name
+# The name of the staff rank you want people to get.
+Group: "staff"
