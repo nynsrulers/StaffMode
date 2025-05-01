@@ -1,0 +1,8 @@
+name: StaffMode
+version: '1.0-SNAPSHOT'
+main: com.nynsrulers.staffmode.StaffMode
+api-version: '1.21'
+prefix: Staff Mode
+authors: [ Aelithron ]
+description: Swap between normal and staff permissions.
+website: https://github.com/nynsrulers/StaffMode
