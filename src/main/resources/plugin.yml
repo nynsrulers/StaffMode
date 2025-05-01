@@ -11,3 +11,8 @@ depend:
 softdepend:
   - PvPToggle
   - LorePowers
+commands:
+  staff:
+    description: The command to toggle into staff mode.
+    aliases:
+      - staffmode
