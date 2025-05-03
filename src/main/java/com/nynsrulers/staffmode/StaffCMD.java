@@ -15,26 +15,26 @@ public class StaffCMD implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String string, @NotNull String[] args) {
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(ChatColor.RED + "You must be a player to use this command.");
+            sender.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.RED + "You must be a player to use this command.");
             return false;
         }
         if (!sender.hasPermission("staffmode.staff")) {
-            sender.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+            sender.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.RED + "You do not have permission to use this command.");
             return false;
         }
         StaffCallbackResponse res = plugin.staffCallback(player.getUniqueId());
         switch (res) {
             case ENABLED -> {
-                player.sendMessage(ChatColor.GREEN + "Staff Mode enabled.");
+                player.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.GREEN + "Staff Mode enabled.");
             }
             case DISABLED -> {
-                player.sendMessage(ChatColor.GREEN + "Staff Mode disabled.");
+                player.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.GREEN + "Staff Mode disabled.");
             }
             case PVP_TIMER_ERROR -> {
-                player.sendMessage(ChatColor.RED + "You cannot enable staff mode while in combat.");
+                player.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.RED + "You cannot enable staff mode while in combat.");
             }
             case OFFLINE -> {
-                player.sendMessage(ChatColor.RED + "You are offline.");
+                player.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.RED + "You are offline.");
             }
         }
         return true;

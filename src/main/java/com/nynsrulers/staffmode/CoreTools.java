@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Objects;
 
-public class CoreTools {
+class CoreTools {
     private StaffMode plugin;
     private static CoreTools instance;
 

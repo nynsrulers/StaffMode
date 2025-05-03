@@ -3,6 +3,7 @@ package com.nynsrulers.staffmode;
 import com.aelithron.pvptoggle.CombatTimerManager;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +16,7 @@ import java.util.UUID;
 public final class StaffMode extends JavaPlugin implements Listener {
     private static Permission perms = null;
     boolean PvPToggleEnabled = false;
-    boolean LorePowersEnabled = false;
+
     @Override
     public void onEnable() {
         // Plugin startup logic
@@ -23,12 +24,10 @@ public final class StaffMode extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+        CoreTools.getInstance().setPlugin(this);
         setupPermissions();
         if (getServer().getPluginManager().getPlugin("PvPToggle") != null) {
             PvPToggleEnabled = true;
-        }
-        if (getServer().getPluginManager().getPlugin("LorePowers") != null) {
-            LorePowersEnabled = true;
         }
     }
 
@@ -43,7 +42,7 @@ public final class StaffMode extends JavaPlugin implements Listener {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (!perms.playerInGroup(player, getConfig().getString("Group"))) continue;
             staffCallback(player.getUniqueId());
-            player.sendMessage("Staff mode disabled.");
+            player.sendMessage(CoreTools.getInstance().getPrefix() + ChatColor.RED + "Staff mode disabled.");
         }
     }
 
